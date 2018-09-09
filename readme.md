@@ -12,7 +12,7 @@ go install
 clapper hello world
 ```
 
-👏 U 👏 S 👏 A 👏 G 👏 E 👏
+# 👏 U 👏 S 👏 A 👏 G 👏 E 👏
 ```go
 results := clapper.Clap("test")
 ```
