@@ -12,19 +12,28 @@ func Clap(victim string) (result string) {
 
 	if length == 1 {
 		// When we have one word clap between letters
-		result = "👏 "
-		for _, char := range arr {
-			result = result + string(char) + " 👏 "
-		}
+		return LetterClap(victim)
 	} else {
 		// If we have a sentence then clap between words
-		str := strings.Join(arr, " ")
-		result = strings.Replace(str, " ", " 👏 ", -1)
-		result = "👏 " + result + " 👏"
+		return WordClap(victim)
 	}
-
-	// Trim any nasty whitespace and display result
-	result = strings.TrimSpace(result)
-	return
 }
 
+// Clap the letters
+func LetterClap(victim string) (result string) {
+	arr := strings.Split(victim, " ")
+	result = "👏 "
+	for _, char := range arr {
+		result = result + string(char) + " 👏 "
+	}
+	return strings.TrimSpace(result)
+}
+
+// Clap the words
+func WordClap(victim string) (result string) {
+	arr := strings.Split(victim, " ")
+	str := strings.Join(arr, " ")
+	result = strings.Replace(str, " ", " 👏 ", -1)
+	result = "👏 " + result + " 👏"
+	return strings.TrimSpace(result)
+}
